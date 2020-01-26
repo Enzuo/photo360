@@ -2,14 +2,15 @@
   "name": "photo",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server"
+    "start": "electron ."
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "electron": "^7.1.10",
     "photo-sphere-viewer": "^3.5.1",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10",
