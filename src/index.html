@@ -3,12 +3,41 @@
 </head>
 
 <body>
+  <div id="browser-bar">
+    <div id="browser-elem">
+      <li>a</li>
+      <li>b</li>
+      <li>blahahdaz da dlad as dlas</li>
+      <li>b</li>
+      <li>b</li>
+      <li>b</li>
+      <li>b</li>
+      <li>b</li>
+    </div>
+  </div>
   <div id="viewer"></div>
 </body>
 
 <style>
   body{
     overflow:hidden;
+    margin:0;
+    padding:0;
+  }
+  #browser-bar {
+    overflow-x:scroll;
+    overflow-y:hidden;
+    height:70px;
+    background:#000;
+  }
+  #browser-elem {
+    width: max-content;
+  }
+  #browser-bar li {
+    overflow:hidden;
+    display: inline-block;
+    color:#FFF;
+    width:50px;
   }
   #viewer {
     width: 100vw;

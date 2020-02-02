@@ -14,7 +14,35 @@ var dirPath = './images'
 var images = fs.readdirSync(dirPath)
 var index = 0;
 console.log(images)
-viewer.setPanorama(path.join(__dirname, '../', dirPath, images[index]))
 
+
+function changePanorama(index){
+  viewer.setPanorama(path.join(__dirname, '../', dirPath, images[index]))
+}
+
+setUpBrowser(images)
+changePanorama(0);
+
+function setUpBrowser(images) {
+  var browser = document.getElementById('browser-elem')
+  browser.removeEventListener('click', browserElemClick)
+  browser.innerHTML = ''
+  
+  for(var i=0; i<images.length; i++){
+    var element = document.createElement('li')
+    element.innerHTML = images[i]
+    element.setAttribute('index', i)
+    browser.appendChild(element)
+  }
+
+  browser.addEventListener('click', browserElemClick)
+}
+function browserElemClick(e) {
+  console.log(e)
+  var index = e.target.getAttribute('index')
+  if(index){
+    changePanorama(index)
+  }
+}
 
 console.log('hello')
