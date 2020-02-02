@@ -16,12 +16,14 @@ var index = 0;
 console.log(images)
 
 
-function changePanorama(index){
-  viewer.setPanorama(path.join(__dirname, '../', dirPath, images[index]))
-}
 
 setUpBrowser(images)
 changePanorama(0);
+
+
+function changePanorama(index){
+  viewer.setPanorama(path.join(__dirname, '../', dirPath, images[index]))
+}
 
 function setUpBrowser(images) {
   var browser = document.getElementById('browser-elem')
@@ -30,13 +32,19 @@ function setUpBrowser(images) {
   
   for(var i=0; i<images.length; i++){
     var element = document.createElement('li')
-    element.innerHTML = images[i]
+    element.setAttribute('title', images[i])
     element.setAttribute('index', i)
+    var bg = document.createElement('div')
+    bg.className = 'bg'
+    bg.setAttribute('style', "background-image: url('../images/"+images[i]+"')")
+    bg.setAttribute('index', i)
+    element.appendChild(bg)
     browser.appendChild(element)
   }
 
   browser.addEventListener('click', browserElemClick)
 }
+
 function browserElemClick(e) {
   console.log(e)
   var index = e.target.getAttribute('index')
@@ -44,5 +52,3 @@ function browserElemClick(e) {
     changePanorama(index)
   }
 }
-
-console.log('hello')

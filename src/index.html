@@ -8,7 +8,7 @@
       <li>a</li>
       <li>b</li>
       <li>blahahdaz da dlad as dlas</li>
-      <li>b</li>
+      <li><div class="bg" style="background: url('../images/2home.jpg')"></div></li>
       <li>b</li>
       <li>b</li>
       <li>b</li>
@@ -27,17 +27,24 @@
   #browser-bar {
     overflow-x:scroll;
     overflow-y:hidden;
-    height:70px;
+    height:170px;
     background:#000;
   }
   #browser-elem {
     width: max-content;
   }
+  #browser-elem .bg{
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+  }
   #browser-bar li {
     overflow:hidden;
     display: inline-block;
     color:#FFF;
-    width:50px;
+    width:100px;
+    padding:25px;
+    cursor: pointer;
   }
   #viewer {
     width: 100vw;
