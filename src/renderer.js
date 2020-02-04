@@ -8,6 +8,7 @@ const app = remote.app
 
 var viewer = new PhotoSphereViewer({
   container: 'viewer',
+  move_speed: 1.5,
   // panorama: '../images/strad_salon3v2.jpg'
 })
 
