@@ -1,7 +1,12 @@
 A simple project to display 360 panorama offline
 
+# Developpement
+
 npm install
 
 npm start
 
-go to localhost:8080
+
+# Build
+
+npm run dist

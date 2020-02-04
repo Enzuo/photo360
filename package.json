@@ -1,19 +1,29 @@
 {
-  "name": "photo",
+  "name": "photo360",
   "version": "1.0.0",
-  "description": "",
+  "description": "display 360 panoramas",
   "main": "src/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron ."
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "electron": "^7.1.10",
     "photo-sphere-viewer": "^3.5.1",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.10.1"
+  },
+  "devDependencies": {
+    "electron": "^7.1.10",
+    "electron-builder": "^22.3.2"
+  },
+  "build" : {
+    "win": {
+      "target": "portable"
+    }
   }
 }

@@ -2,6 +2,7 @@ var { remote, nativeImage } = require('electron')
 var PhotoSphereViewer = require('photo-sphere-viewer')
 var fs = require('fs')
 const path = require('path')
+const app = remote.app
 
 
 
@@ -11,7 +12,7 @@ var viewer = new PhotoSphereViewer({
 })
 
 
-var dirPath = './images'
+var dirPath = path.join(app.getAppPath(), 'images')
 var images = fs.readdirSync(dirPath)
 var index = 0;
 console.log(images)
@@ -23,7 +24,7 @@ changePanorama(0);
 
 
 function changePanorama(index){
-  viewer.setPanorama(path.join(__dirname, '../', dirPath, images[index]))
+  viewer.setPanorama(path.join(dirPath, images[index]))
 }
 
 async function setUpBrowser(images) {
@@ -38,7 +39,7 @@ async function setUpBrowser(images) {
     element.setAttribute('index', i)
     var bg = document.createElement('div')
     bg.className = 'bg'
-    var thumb = createThumb('./images/'+images[i])
+    var thumb = createThumb(path.join(dirPath, images[i]))
     bg.setAttribute('style', "background-image: url('data:image/png;base64,"+thumb+"')")
     bg.setAttribute('index', i)
     element.appendChild(bg)
