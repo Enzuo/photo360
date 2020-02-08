@@ -13,8 +13,9 @@ var viewer = new PhotoSphereViewer({
 })
 
 
-var dirPath = path.join(app.getAppPath(), 'images')
-var images = fs.readdirSync(dirPath)
+var appDir = process.env.PORTABLE_EXECUTABLE_DIR || app.getAppPath()
+var imagesDirPath = path.join(appDir, 'images')
+var images = fs.readdirSync(imagesDirPath)
 var index = 0;
 console.log(images)
 
@@ -25,7 +26,7 @@ changePanorama(0);
 
 
 function changePanorama(index){
-  viewer.setPanorama(path.join(dirPath, images[index]))
+  viewer.setPanorama(path.join(imagesDirPath, images[index]))
 }
 
 async function setUpBrowser(images) {
@@ -40,7 +41,7 @@ async function setUpBrowser(images) {
     element.setAttribute('index', i)
     var bg = document.createElement('div')
     bg.className = 'bg'
-    var thumb = createThumb(path.join(dirPath, images[i]))
+    var thumb = createThumb(path.join(imagesDirPath, images[i]))
     bg.setAttribute('style', "background-image: url('data:image/png;base64,"+thumb+"')")
     bg.setAttribute('index', i)
     element.appendChild(bg)
